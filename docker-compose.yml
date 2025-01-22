@@ -1,0 +1,35 @@
+services:
+  mysql_db:
+    image: mysql:8.0
+    container_name: mysql_db
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234 # MySQL root 비밀번호
+      MYSQL_DATABASE: petprice  # 생성할 데이터베이스 이름
+    ports:
+      - "3306:3306" # MySQL 포트 매핑
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - mysql-data:/var/lib/mysql # 데이터 유지
+
+  app:
+    image: petprice-app:latest
+    container_name: petprice-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080" # Spring Boot 애플리케이션 포트 매핑
+    depends_on:
+      mysql_db:
+        condition: service_healthy # MySQL 서비스가 준비된 후 실행
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql_db:3306/petprice?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 1234
+
+volumes:
+  mysql-data:

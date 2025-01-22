@@ -1,0 +1,27 @@
+.faq-section {
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+.inquiry-section {
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.faq-section h2,
+.inquiry-section h2 {
+    margin-bottom: 20px;
+}
+
+.faq-section .accordion-item {
+    margin-bottom: 10px;
+}
+
+.inquiry-section .form-group {
+    margin-bottom: 20px;
+}

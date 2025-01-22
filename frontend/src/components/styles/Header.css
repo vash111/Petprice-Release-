@@ -1,0 +1,38 @@
+.header-main {
+  position: relative;
+  height: 100vh;
+  background: url('https://cdn.imweb.me/upload/S20210807d1f68b7a970c2/a8c9b6dcc9af0.jpg') no-repeat center center/cover;
+}
+
+.navbar-transparent {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.navbar-default {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.navbar a {
+  color: #fff !important;
+  font-weight: bold;
+}
+
+.navbar .dropdown-menu {
+  background: rgba(0, 0, 0, 0.9);
+  border: none;
+}
+
+.modal-backdrop.show {
+  z-index: 1040 !important;
+}
+
+.modal {
+  z-index: 1050 !important;
+}
+
+small {
+  display: block;
+  margin-top: 5px;
+}

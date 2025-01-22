@@ -1,0 +1,47 @@
+.header-image {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: url('https://www.rennes.aeroport.fr/sites/default/files/2024-04/animaux-chat-chien-avion_rennes-aeroport_%40cristian-castillo_.png') no-repeat center center/cover;
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.header-text h1 {
+    font-size: 48px;
+    margin: 0;
+}
+
+.header-text h2 {
+    font-size: 24px;
+    margin: 10px 0 0;
+}
+
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: 40px auto; /* 상단과 하단 간격을 40px로 설정하여 이미지와 분리 */
+    background-color: #f9f9f9; /* 선택 사항: 본문 배경색 추가 */
+    border-radius: 8px; /* 선택 사항: 부드러운 모서리 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 선택 사항: 그림자 추가 */
+}
+
+.content p {
+    margin: 15px 0;
+}
+
+.highlight {
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    display: block;
+    margin-top: 20px;
+}

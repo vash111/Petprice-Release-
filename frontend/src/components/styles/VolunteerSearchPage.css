@@ -1,0 +1,116 @@
+.volunteer-search-page {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.search-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.select-input,
+.date-input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 150px;
+    font-size: 14px;
+}
+
+.action-button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.volunteer-list {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.volunteer-item {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.volunteer-item:last-child {
+    border-bottom: none;
+}
+
+.item-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.no-data {
+    text-align: center;
+    color: #999;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+
+.page-button {
+    padding: 5px 10px;
+    border: 1px solid #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.page-button.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.page-button:hover {
+    background-color: #45a049;
+    color: white;
+}
+
+.apply-button {
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.apply-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+

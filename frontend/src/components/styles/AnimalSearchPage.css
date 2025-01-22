@@ -1,0 +1,235 @@
+.animal-search-page {
+    padding: 20px;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar select,
+  .search-bar input {
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .search-bar button:hover {
+    background-color: #45a049;
+  }
+  
+  .animal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .animal-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .animal-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+  }
+  
+  .animal-info h3 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .animal-info p {
+    margin: 5px 0 0;
+    color: #777;
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    background-color: white;
+    cursor: pointer;
+  }
+  
+  .pagination button.active {
+    background-color: #4caf50;
+    color: white;
+    border-color: #4caf50;
+  }
+  
+  .pagination button:hover {
+    background-color: #f0f0f0;
+  }
+
+  
+  .animal-search-page .modal-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.animal-search-page .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+.animal-search-page .close:hover {
+    color: #4caf50;
+}
+
+.animal-search-page .modal-body {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    justify-content: center; /* 가운데 정렬 */
+    align-items: center; /* 세로로 가운데 정렬 */
+}
+
+.animal-search-page .modal-left,
+.animal-search-page .modal-right {
+    flex: 1;
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 세로로 중앙 정렬 */
+    align-items: center; /* 가로로 중앙 정렬 */
+}
+
+.animal-search-page .modal-animal-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #ddd;
+}
+
+.animal-search-page .animal-details p {
+    font-size: 14px;
+    margin: 8px 0;
+    color: #555;
+}
+
+.animal-search-page .section-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+    border-bottom: 2px solid #4caf50;
+    padding-bottom: 5px;
+}
+
+.animal-search-page .animal-info p,
+.animal-search-page .shelter-info p {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #777;
+    line-height: 1.5;
+}
+
+.animal-search-page .animal-info p strong,
+.animal-search-page .shelter-info p strong {
+    font-weight: bold;
+    color: #333;
+}
+
+.animal-search-page .shelter-info {
+    margin-top: 25px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.animal-search-page #map {
+    margin-top: 30px;
+    height: 300px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.animal-search-page .modal-body > div {
+    background-color: #fafafa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.animal-search-page .modal-body > div p {
+    margin-bottom: 12px;
+}
+
+.animal-search-page .modal-body > div p strong {
+    color: #4caf50;
+}
+
+.animal-search-page .modal-body > div p:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .animal-search-page .modal-body {
+        flex-direction: column;
+    }
+
+    .animal-search-page .modal-left,
+    .animal-search-page .modal-right {
+        flex: unset;
+        text-align: center;
+    }
+
+    .animal-search-page .modal-right {
+        margin-top: 20px;
+    }
+
+    .animal-search-page #map {
+        height: 250px;
+    }
+}
+
+
+  
+  

@@ -1,0 +1,59 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db:3306/petprice?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+
+  spring:
+    mail:
+      host: smtp.naver.com # 네이버 SMTP 서버 주소
+      port: 465 # SMTP 포트 (TLS)
+      username: lese9824 # 네이버 이메일 주소
+      password: 269HXH9L9MT9 # 네이버 계정 비밀번호 (또는 애플리케이션 비밀번호)
+      properties:
+        mail:
+          smtp:
+            auth: true # SMTP 인증 사용
+            starttls:
+              enable: true # TLS(SSL) 활성화
+
+  jpa:
+    hibernate:
+      ddl-auto: update # 애플리케이션 시작 시 테이블 생성 및 업데이트
+    properties:
+      hibernate:
+        show_sql: true    # SQL 쿼리 로깅 활성화
+        format_sql: true  # SQL 쿼리를 가독성 있게 포맷
+    database-platform: org.hibernate.dialect.MySQLDialect # 최신 Hibernate Dialect 사용
+    open-in-view: false # 엔티티 조회 시 open-in-view 비활성화 권장
+
+  servlet:
+    multipart:
+      max-file-size: 20MB # 파일 한 개당 최대 크기
+      max-request-size: 100MB # 요청당 최대 크기
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher # 경로 매칭 방식으로 Ant 스타일 사용
+
+  web:
+    resources:
+      static-locations:
+        - classpath:/static/
+        - file:///C:/img/ # C:/img 디렉토리를 정적 리소스 위치로 추가
+
+logging:
+  level:
+    org:
+      hibernate.SQL: debug   # SQL 로깅 활성화
+      hibernate.type.descriptor.sql: trace # SQL 파라미터 로깅
+      springframework.security: debug # Spring Security 로그 활성화
+
+external:
+  api:
+    key: inmP%2F0x0%2FLlrmtKcNuDjym5RuNIz4l3%2FN5ZIAI6BKjnnzid3jyvWj0fDOmAyt05qUd3nXfvNAj6qFVWhXTFo%2FQ%3D%3D
+

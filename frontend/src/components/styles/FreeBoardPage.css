@@ -1,0 +1,199 @@
+/* 기본적인 스타일 초기화 */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #ffffff; /* 완전히 흰색 배경 */
+    color: #666; /* 기본 텍스트 색상 */
+}
+
+.centered {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #444; /* 밝은 회색 텍스트 */
+}
+
+/* 상단 바 스타일 */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8; /* 매우 밝은 회색 */
+    color: #444;
+    border-radius: 5px;
+    border: 1px solid #eee; /* 부드러운 테두리 */
+}
+
+.search-input {
+    padding: 8px;
+    border: 1px solid #eee; /* 매우 연한 회색 테두리 */
+    border-radius: 5px;
+    outline: none;
+    width: 300px;
+    font-size: 14px;
+}
+
+.search-input:focus {
+    border-color: #ddd; /* 연한 회색 */
+    box-shadow: 0 0 5px rgba(221, 221, 221, 0.5); /* 부드러운 그림자 */
+}
+
+.search-button, .create-button {
+    padding: 10px 15px;
+    margin-left: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd; /* 버튼 테두리 연한 회색 */
+    border-radius: 5px;
+    color: #666; /* 중간 회색 텍스트 */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-button:hover, .create-button:hover {
+    background-color: #f2f2f2; /* 버튼 호버 시 더 밝은 회색 */
+    color: #444;
+}
+
+/* 테이블 스타일 */
+.board-table {
+    width: 100%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.board-table th, .board-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #f2f2f2; /* 매우 밝은 회색 테두리 */
+}
+
+.board-table th {
+    background-color: #f5f5f5; /* 밝은 회색 */
+    color: #555; /* 중간 밝기의 회색 텍스트 */
+    font-weight: bold;
+}
+
+.board-table tr:nth-child(even) {
+    background-color: #fafafa; /* 밝은 회색 */
+}
+
+.board-table tr:hover {
+    background-color: #f3f3f3; /* 더 밝은 회색 호버 */
+    cursor: pointer;
+}
+
+.board-table button {
+    padding: 5px 10px;
+    border: none;
+    background-color: #e0e0e0; /* 버튼 기본 색상 */
+    color: #555; /* 중간 회색 텍스트 */
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.board-table button:hover {
+    background-color: #d6d6d6; /* 버튼 호버 색상 */
+}
+
+/* 페이지네이션 스타일 */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.pagination button {
+    padding: 8px 12px;
+    margin: 0 5px;
+    border: 1px solid #ddd; /* 테두리 연한 회색 */
+    border-radius: 5px;
+    background-color: white;
+    color: #555; /* 텍스트 중간 회색 */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pagination button:hover, .pagination button.active {
+    background-color: #f0f0f0; /* 호버 및 활성화된 버튼 */
+    color: #444;
+}
+
+/* 모달 스타일 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2); /* 아주 연한 검정 투명 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #777; /* 밝은 회색 */
+}
+
+.modal-content input, .modal-content select, .modal-content textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+}
+
+.modal-content input:focus, .modal-content select:focus, .modal-content textarea:focus {
+    border-color: #ddd;
+    box-shadow: 0 0 5px rgba(221, 221, 221, 0.5);
+}
+
+.modal-content button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:first-of-type {
+    background-color: #ddd; /* 모달 확인 버튼 */
+    color: #555;
+}
+
+.modal-content button:first-of-type:hover {
+    background-color: #ccc;
+}
+
+.modal-content button:last-of-type {
+    background-color: #f0f0f0; /* 모달 취소 버튼 */
+    color: #666;
+}
+
+.modal-content button:last-of-type:hover {
+    background-color: #e0e0e0;
+}

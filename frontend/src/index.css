@@ -1,0 +1,40 @@
+/* index.css */
+
+/* 기본 박스 모델 설정 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* body에 전역 폰트 설정 */
+body {
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.6; /* 가독성을 위한 줄 높이 설정 */
+  background-color: #f9f9f9; /* 배경색 추가 (선택 사항) */
+  color: #333; /* 기본 텍스트 색상 */
+}
+
+/* 헤딩 태그에 폰트 적용 */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 700; /* 헤딩은 기본적으로 굵게 설정 */
+  color: #222; /* 헤딩 색상 (선택 사항) */
+}
+
+/* 링크 기본 스타일 */
+a {
+  font-family: 'Noto Sans', sans-serif;
+  text-decoration: none;
+  color: #007BFF;
+}
+
+/* 전역 링크 스타일 커스터마이징 */
+a:hover {
+  text-decoration: underline;
+}
+
+/* 추가 스타일 예시 */
+p, span, li {
+  font-family: 'Noto Sans', sans-serif;
+}
