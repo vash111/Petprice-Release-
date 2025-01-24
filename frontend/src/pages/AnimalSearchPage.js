@@ -21,6 +21,9 @@ function AnimalSearchPage() {
     const API_KEY = process.env.REACT_APP_ANIMAL_API_KEY; // 디코딩된 API 키
     const KAKAO_MAP_API_KEY = process.env.REACT_APP_KAKAO_MAP_API_KEY; // 카카오맵 API 키
 
+    // 캐싱용 객체
+    const cache = {};
+
     const handleSearch = async () => {
         setLoading(true);
         setError(null);
@@ -40,6 +43,16 @@ function AnimalSearchPage() {
                 numOfRows: 5, // 초기 10개로 설정했지만 로딩(페이지,카카오맵)이 너무 느려서 5개로 줄임
             };
 
+            // 캐싱 키 생성
+            const cacheKey = JSON.stringify(params);
+
+            // 캐시 확인
+            if (cache[cacheKey]) {
+                setAnimals(cache[cacheKey]);
+                setLoading(false);
+                return;
+            }
+
             const response = await axios.get(
                 'http://apis.data.go.kr/1543061/abandonmentPublicSrvc/abandonmentPublic',
                 { params }
@@ -48,6 +61,9 @@ function AnimalSearchPage() {
             const body = response?.data?.response?.body;
             if (body?.items?.item) {
                 setAnimals(body.items.item);
+
+                // 응답 데이터를 캐시에 저장
+                cache[cacheKey] = body.items.item;
             } else {
                 setAnimals([]);
                 setError('데이터가 없습니다.');
@@ -176,50 +192,48 @@ function AnimalSearchPage() {
 
             {/* 모달 */}
             {modalVisible && selectedAnimal && (
-    <div className="modal">
-        <div className="modal-content">
-            <span className="close" onClick={handleModalClose}>
-                &times;
-            </span>
-            <div className="modal-body">
-                {/* 유기견 정보 */}
-                <div className="modal-left">
-                    <div className="animal-details-container">
-                        <img
-                            src={selectedAnimal.popfile}
-                            alt={selectedAnimal.kindCd}
-                            className="modal-animal-image"
-                        />
-                        <div className="animal-details">
-                            <p><strong>공고번호:</strong> {selectedAnimal.desertionNo}</p>
-                            <p><strong>접수 일시:</strong> {selectedAnimal.happenDt}</p>
-                            <p><strong>발견 장소:</strong> {selectedAnimal.happenPlace}</p>
+                <div className="modal">
+                    <div className="modal-content">
+                        <span className="close" onClick={handleModalClose}>
+                            &times;
+                        </span>
+                        <div className="modal-body">
+                            {/* 유기견 정보 */}
+                            <div className="modal-left">
+                                <div className="animal-details-container">
+                                    <img
+                                        src={selectedAnimal.popfile}
+                                        alt={selectedAnimal.kindCd}
+                                        className="modal-animal-image"
+                                    />
+                                    <div className="animal-details">
+                                        <p><strong>공고번호:</strong> {selectedAnimal.desertionNo}</p>
+                                        <p><strong>접수 일시:</strong> {selectedAnimal.happenDt}</p>
+                                        <p><strong>발견 장소:</strong> {selectedAnimal.happenPlace}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* 보호소 정보 */}
+                            <div className="modal-right">
+                                <div className="section-title">유기견 정보</div>
+                                <p><strong>품종:</strong> {selectedAnimal.kindCd}</p>
+                                <p><strong>나이:</strong> {selectedAnimal.age}</p>
+                                <p><strong>몸무게:</strong> {selectedAnimal.weight}</p>
+                                <p><strong>성별:</strong> {selectedAnimal.sexCd}</p>
+                                <p><strong>중성화 여부:</strong> {selectedAnimal.neuter_yn}</p>
+                                <p><strong>색상:</strong> {selectedAnimal.colorCd}</p>
+                                <p><strong>특징:</strong> {selectedAnimal.specialMark}</p>
+
+                                <div className="section-title">보호소 정보</div>
+                                <p><strong>보호소 이름:</strong> {selectedAnimal.careNm}</p>
+                                <p><strong>보호소 주소:</strong> {selectedAnimal.careAddr}</p>
+                                <p><strong>연락처:</strong> {selectedAnimal.careTel}</p>
+                            </div>
                         </div>
+                        <div id="map" style={{ width: '100%', height: '300px' }}></div>
                     </div>
                 </div>
-                {/* 보호소 정보 */}
-                <div className="modal-right">
-                    <div className="section-title">유기견 정보</div>
-                    <p><strong>품종:</strong> {selectedAnimal.kindCd}</p>
-                    <p><strong>나이:</strong> {selectedAnimal.age}</p>
-                    <p><strong>몸무게:</strong> {selectedAnimal.weight}</p>
-                    <p><strong>성별:</strong> {selectedAnimal.sexCd}</p>
-                    <p><strong>중성화 여부:</strong> {selectedAnimal.neuter_yn}</p>
-                    <p><strong>색상:</strong> {selectedAnimal.colorCd}</p>
-                    <p><strong>특징:</strong> {selectedAnimal.specialMark}</p>
-
-                    <div className="section-title">보호소 정보</div>
-                    <p><strong>보호소 이름:</strong> {selectedAnimal.careNm}</p>
-                    <p><strong>보호소 주소:</strong> {selectedAnimal.careAddr}</p>
-                    <p><strong>연락처:</strong> {selectedAnimal.careTel}</p>
-                </div>
-            </div>
-            <div id="map" style={{ width: '100%', height: '300px' }}></div>
-        </div>
-    </div>
-)}
-
-
+            )}
         </div>
     );
 }
